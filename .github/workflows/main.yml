@@ -13,7 +13,7 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v2.1.0
         with:
-          dotnet-version: 6
+          dotnet-version: 6.x
           
       - name: Publish
         run: dotnet publish WebPage/WebPage/WebPage.csproj -c Release -o release --nologo
