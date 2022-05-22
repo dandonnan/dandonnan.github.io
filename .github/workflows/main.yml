@@ -18,6 +18,12 @@ jobs:
       - name: Publish
         run: dotnet publish WebPage/WebPage/WebPage.csproj -c Release -o release --nologo
         
+      - name: Change tag
+        run: sed -i 's/<base href="\/" \/>/<base href="\/WebPage\/" \/>/g' release/wwwroot/index.html
+        
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
+        
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
