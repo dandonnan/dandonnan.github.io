@@ -14,6 +14,7 @@ jobs:
         uses: actions/setup-dotnet@v2.1.0
         with:
           dotnet-version: 3.1
+          include-prerelease: true
           
       - name: Publish
         run: dotnet publish WebPage/WebPage/WebPage.csproj -c Release -o release --nologo
