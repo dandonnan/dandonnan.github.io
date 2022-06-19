@@ -1,0 +1,146 @@
+body{
+    background-color: #4e4e4e;
+    color: white;
+    font-family: 'Questrial';
+}
+
+a {
+    color: white;
+}
+
+a:hover{
+    color: lightgray;
+}
+
+.titleBar{
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Titillium Web';
+    border-bottom: 2px solid white;
+}
+
+.titleBar::after{
+    content: 'Dan Donnan';
+}
+
+.mainContent {
+    margin-top: 1rem;
+    min-height: 90%;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.flexNotMobile{
+    display: flex;
+}
+
+.quarterWidth {
+    width: 25%;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.bigText{
+    font-size: 3rem;
+}
+
+.projectSearch {
+    height: 100%;
+    font-size: xx-large;
+    background-color: #4e4e4e;
+    color: white;
+    border-style: solid;
+    border-color: white;
+}
+
+.project {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.projectTitle {
+    font-size: 2rem;
+}
+
+.projectPlatforms{
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+.projectDetails{
+    font-size: 1.2rem;
+}
+
+.missingContent {
+    font-size: x-large;
+}
+
+.hidden {
+    display: none;
+}
+
+.waffle {
+    width: 50%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5rem;
+}
+
+.popupBackground{
+    background: rgba(0, 0, 0, 0.315);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popupContent{
+    background-color: #4e4e4e;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    left: 25%;
+    top: 15%;
+    width: 50%;
+    height: 75%;
+    overflow: auto;
+}
+
+.footer {
+    text-align: center;
+    width: 99%;
+    margin-top: 1rem;
+}
+
+.footer::after{
+    content: 'Copyright © 2022 Dan Donnan.'
+}
+
+@media only screen and (max-width: 500px) {
+    .mainContent{
+        margin-top: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .waffle {
+        width: 80%;
+    }
+
+    .popupContent{
+        left: 10%;
+        width: 80%;
+    }
+
+    .flexNotMobile{
+        display: grid;
+    }
+}

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Projects developed by Dan Donnan." />
+        <meta name="robots" content="index,follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" href="styles/main.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
+        <title>Dan Donnan</title>
+    </head>
+    <body>
+        <div class="titleBar"></div>
+        <div class="mainContent">
+
+            <div class="flexNotMobile">
+                <div class="quarterWidth bigText">Projects</div>
+                <div class="fullWidth">
+                    <input id="txtSearch" class="fullWidth projectSearch" type="text" onkeyup="SearchProjects()" />
+                </div>
+            </div>
+
+            <div id="projects">
+                <div id="bird" class="project">
+                    <div class="projectTitle">Bird Game</div>
+                    <div class="projectPlatforms">2022 - PC</div>
+                    <div class="projectDetails">
+                        Developed in less than a week, <b>Bird Game</b> is about a bird that loves to
+                        steal food and poop on people.
+                    </div>
+                </div>
+
+                <div id="tabletop" class="project">
+                    <div class="projectTitle">Tabletop Adventure Journal</div>
+                    <div class="projectPlatforms">2021 - Chrome, Firefox</div>
+                    <div class="projectDetails">
+                        <b>Tabletop Adventure Journal</b> is a browser extension to make note taking and
+                        sorting during tabletop games (like D&D) easier than trawling through a mammoth
+                        document or pages of notes.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+
+        <script type="text/javascript" src="js/projects.js"></script>
+    </body>
+</html>
