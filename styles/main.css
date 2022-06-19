@@ -2,6 +2,7 @@ body{
     background-color: #4e4e4e;
     color: white;
     font-family: 'Questrial';
+    font-size: 1.2rem;
 }
 
 a {
@@ -112,6 +113,18 @@ a:hover{
     width: 50%;
     height: 75%;
     overflow: auto;
+    padding: 1rem;
+    line-height: 1.3rem;
+}
+
+.internalLink {
+    display: inline-flex;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.internalLink:hover{
+    color: lightgray;
 }
 
 .footer {
@@ -122,6 +135,24 @@ a:hover{
 
 .footer::after{
     content: 'Copyright © 2022 Dan Donnan.'
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #2f2f2f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #1f1f1f;
 }
 
 @media only screen and (max-width: 500px) {
@@ -136,7 +167,7 @@ a:hover{
     }
 
     .popupContent{
-        left: 10%;
+        left: 6%;
         width: 80%;
     }
 
