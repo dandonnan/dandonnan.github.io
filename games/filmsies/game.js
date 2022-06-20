@@ -16,60 +16,106 @@ function GetFourthHint(puzzle) {
     return `"${atob(puzzle.Quote)}"`;
 }
 
-// todo
+function UnlockBadges() {
+    let badgesUnlocked = [];
+
+    if (userData.badges.length === 0) {
+        for (let i = 0; i < badges.length; i++){
+            userData.badges.push({
+                Id: badges[i].Id,
+                Progress: 0,
+                Unlocked: false
+            });
+        }
+    }
+
+    if (userData.numberOfGuesses === 1 && userData.badges[0].Unlocked === false) {
+        userData.badges[0].Progress = 1;
+        userData.badges[0].Unlocked = true;
+
+        badgesUnlocked.push(0);
+    }
+
+    for (let i = 1; i < 3; i++){
+        if (userData.badges[i].Unlocked === false
+            && userData.stats.streak >= 1) {
+            userData.badges[i].Progress++;
+
+            if (userData.badges[i].Progress >= badges[i].Progress) {
+                userData.badges[i].Unlocked = true;
+                badgesUnlocked.push(i);
+            }
+        }
+    }
+
+    for (let i = 3; i < 8; i++){
+        if (userData.badges[i].Unlocked === false) {
+            userData.badges[i].Progress++;
+
+            if (userData.badges[i].Progress >= badges[i].Progress) {
+                userData.badges[i].Unlocked = true;
+                badgesUnlocked.push(i);
+            }
+        }
+    }
+
+    return badgesUnlocked;
+}
+
+// todo: icons
 const badges = [
     {
-        Id: 'FirstTry',
-        Name: 'First Try',
+        Id: 'LuckyGuess',
+        Name: 'Lucky Guess',
         Description: 'Correctly guess the title with the first guess.',
         Icon: '',
         Progress: 1
     },
     {
-        Id: 'WeekStreak',
-        Name: 'Weekly Streak',
-        Description: 'Correctly guess titles for 7 days in a row.',
+        Id: 'StreakTen',
+        Name: 'Box Office Brain',
+        Description: 'Correctly guess 10 titles in a row.',
         Icon: '',
-        Progress: 7
+        Progress: 10
     },
     {
-        Id: 'MonthStreak',
-        Name: 'Monthly Streak',
-        Description: 'Correctly guess titles for 30 days in a row.',
+        Id: 'StreakThirty',
+        Name: 'Movie Magic',
+        Description: 'Correctly guess 30 titles in a row.',
         Icon: '',
         Progress: 30
     },
     {
         Id: 'Five',
-        Name: 'Five',
+        Name: 'Cult Hits',
         Description: 'Correctly guess 5 titles.',
         Icon: '',
         Progress: 5
     },
     {
         Id: 'Ten',
-        Name: 'Ten',
+        Name: 'Indie Darlings',
         Description: 'Correctly guess 10 titles.',
         Icon: '',
         Progress: 10
     },
     {
         Id: 'TwentyFive',
-        Name: 'TwentyFive',
+        Name: 'Film Fan',
         Description: 'Correctly guess 25 titles.',
         Icon: '',
         Progress: 25
     },
     {
         Id: 'Fifty',
-        Name: 'Fifty',
+        Name: 'Film Buff',
         Description: 'Correctly guess 50 titles.',
         Icon: '',
         Progress: 50
     },
     {
         Id: 'OneHundred',
-        Name: 'OneHundred',
+        Name: 'Movie Mastermind',
         Description: 'Correctly guess 100 titles.',
         Icon: '',
         Progress: 100

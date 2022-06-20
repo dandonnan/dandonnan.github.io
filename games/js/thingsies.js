@@ -8,7 +8,7 @@ const millisecondsInDay = 86400000;
 const themeDark = 'dark';
 const themeLight = 'light';
 
-// todo: badges, concept of locking in, reusing puzzles
+// todo: badge icons, remove letter, recycle date, delete other folders and recopy, put in proper puzzles
 
 let guesses = 0;
 let hints = [];
@@ -49,6 +49,8 @@ document.onkeydown = function (keyboardEvent) {
             HidePopup('howToPlay');
             HidePopup('stats');
             HidePopup('settings');
+            HidePopup('won');
+            HidePopup('lost');
         }
     }
     else {
@@ -231,6 +233,14 @@ function Start() {
                 AddHint();
             }
         }
+
+        let letters = document.getElementsByClassName('letter');
+
+        for (let i = 0; i < letters.length; i++){
+            if (letters[i].innerText === titleWithoutSpaces[i].toUpperCase() && letters[i].classList.contains('letterCorrect') === false) {
+                letters[i].classList.add('letterCorrect');
+            }
+        }
     }
 }
 
@@ -251,6 +261,14 @@ function Guess() {
 
         userData.lastGuess = currentGuess;
         userData.numberOfGuesses++;
+
+        let letters = document.getElementsByClassName('letter');
+
+        for (let i = 0; i < letters.length; i++){
+            if (letters[i].innerText === title[i].toUpperCase() && letters[i].classList.contains('letterCorrect') === false) {
+                letters[i].classList.add('letterCorrect');
+            }
+        }
 
         if (title.toUpperCase() === currentGuess) {
             Win();
@@ -280,10 +298,32 @@ function Win() {
 
     userData.stats.guesses[userData.numberOfGuesses - 1]++;
 
+    let badgesUnlocked = UnlockBadges();
+
+    let badgeInfo = '';
+
+    for (let i = 0; i < badgesUnlocked.length; i++){
+        // todo: badge icon
+        badgeInfo += `<div>${badges[badgesUnlocked[i]].Name}</div>`;
+    }
+
+    if (badgeInfo !== '') {
+        document.getElementById('newBadges').innerHTML = '<div class="popupTitle">Badges Unlocked</div>' + badgeInfo;
+    }
+
     SetupStats();
 
-    // todo: show stats
-    // todo: unlock badges
+    document.getElementById('winStats').innerHTML = '';
+
+    let stats = document.getElementsByClassName('statBar');
+
+    let newStats = '';
+
+    for (let i = 0; i < stats.length; i++){
+        newStats += `<div class="statBar">${stats[i].innerHTML}</div>`;
+    }
+
+    document.getElementById('winStats').innerHTML = newStats;
 
     ShowPopup('won');
 
@@ -304,7 +344,14 @@ function Lose() {
 }
 
 function AddToGuess(character) {
-    if (currentGuess.length < currentTitleLength) {
+    let firstSpace = currentGuess.indexOf(' ');
+
+    if (firstSpace > -1) {
+        currentGuess = currentGuess.substring(0, firstSpace) + character + currentGuess.substring(firstSpace + 1);
+
+        PopulateLettersFromGuess();
+    }
+    else if (currentGuess.length < currentTitleLength) {
         currentGuess += character;
 
         PopulateLettersFromGuess();
@@ -312,10 +359,32 @@ function AddToGuess(character) {
 }
 
 function RemoveFromGuess() {
-    if (currentGuess !== '' && guesses < maxGuesses) {
-        currentGuess = currentGuess.substring(0, currentGuess.length - 1);
+    // todo: fix this
 
-        PopulateLettersFromGuess();
+    let letters = document.getElementsByClassName('letter');
+
+    if (currentGuess.length > 0) {
+        let lastIndex = currentGuess.length - 1;
+
+        let firstSpace = currentGuess.indexOf(' ');
+
+        lastIndex = firstSpace > -1 ? firstSpace - 1 : lastIndex;
+
+        let appendix = firstSpace > -1 ? currentGuess.substring(firstSpace) : '';
+
+        while (lastIndex >= 0) {
+            if (letters[lastIndex].classList.contains('letterCorrect')) {
+                appendix = ' ' + currentGuess[lastIndex] + appendix;
+            }
+            else {
+                currentGuess = currentGuess.substring(0, lastIndex) + appendix;
+                lastIndex = 0;
+
+                PopulateLettersFromGuess();
+            }
+
+            lastIndex--;
+        }
     }
 }
 
@@ -345,7 +414,9 @@ function PopulateLettersFromGuess() {
     }
 
     for (let i = 0; i < currentGuess.length; i++){
-        letters[i].innerText = currentGuess[i];
+        if (currentGuess[i] !== ' ') {
+            letters[i].innerText = currentGuess[i];
+        }
     }
 }
 
@@ -414,39 +485,24 @@ function GetPuzzle() {
 }
 
 function GetRecycledPuzzle() {
-    let month = new Date().getUTCMonth() + 1;
+    //let recycleStartDate = 1725148800000;
 
-    if (month < 10) {
-        month = `0${month}`;
+    // todo: remove this and use the one above
+    let recycleStartDate = 1655510400000;
+
+    let today = new Date().setUTCHours(0, 0, 0, 0);
+
+    let difference = today - recycleStartDate;
+
+    if (difference > 0) {
+        difference /= millisecondsInDay;
+
+        while (difference > puzzles.length) {
+            difference -= puzzles.length;
+        }
     }
 
-    let year = new Date().getUTCFullYear();
-
-    let date = `${new Date().getUTCDate()}` +
-        `${month}` +
-        `${year}`;
-
-    let finalId = puzzles[puzzles.length - 1].Id;
-
-    let currentDate = parseInt(date);
-
-    let difference = currentDate - finalId;
-
-    console.log('recycled', `${currentDate}, ${difference}, ${finalId}`);
-
-    while (difference > puzzles.length) {
-        difference /= puzzles.length;
-    }
-
-    difference = parseInt(difference);
-
-    console.log('difference', difference);
-
-    let puzzle = puzzles[difference];
-
-    puzzle = puzzles[1];
-
-    return puzzle;
+    return puzzles[difference];
 }
 
 function ParseCommaList(list) {
@@ -565,7 +621,8 @@ function ToggleHints() {
 
 function SetupStats() {
     document.getElementById('statPlayed').innerText = userData.stats.played;
-    document.getElementById('statCorrect').innerText = userData.stats.played === 0 ? 0 : (userData.stats.correct / userData.stats.played) * 100;
+    document.getElementById('statCorrect').innerText = userData.stats.played === 0 ? 0 :
+                    Math.round((userData.stats.correct / userData.stats.played) * 1000) / 10;
     document.getElementById('statStreak').innerText = userData.stats.streak;
     document.getElementById('statMaxStreak').innerText = userData.stats.maxStreak;
 
@@ -574,6 +631,21 @@ function SetupStats() {
     document.getElementById('statGuess3').innerText = userData.stats.guesses[2];
     document.getElementById('statGuess4').innerText = userData.stats.guesses[3];
     document.getElementById('statGuess5').innerText = userData.stats.guesses[4];
+
+    let unlockedBadges = '';
+
+    for (let i = 0; i < userData.badges.length; i++){
+        if (userData.badges[i].Unlocked === true) {
+            // todo: badge icon
+            unlockedBadges += `<div>${badges[i].Name}</div>`;
+        }
+    }
+
+    if (unlockedBadges === '') {
+        unlockedBadges = '<div class="credits">Keep playing to unlock badges.</div>';
+    }
+
+    document.getElementById('unlockedBadges').innerHTML = unlockedBadges;
 }
 
 Start();

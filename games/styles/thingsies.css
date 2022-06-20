@@ -134,6 +134,11 @@ a[data-theme="dark"] {
     display: inline-table;
 }
 
+.letterCorrect {
+    border: none;
+    font-size: x-large;
+}
+
 .space {
     width: 2rem;
     height: 2rem;
