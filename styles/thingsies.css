@@ -1,0 +1,309 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+body[data-theme="light"] {
+    color: black;
+    background-color: white;
+}
+
+body[data-theme="dark"] {
+    color: white;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+a[data-theme="light"] {
+    color: black;
+}
+
+a[data-theme="dark"] {
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.topBar {
+    width: 100%;
+    padding-right: 1rem;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    border-bottom: 1px solid;
+    display: flex;
+}
+
+.topBarLeft {
+    position: relative;
+    left: 0.5rem;
+    display: flex;
+}
+
+.topBarRight{
+    display: flex;
+}
+
+.topBarMiddle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gameTitle {
+    font-size: xx-large;
+}
+
+.gameSubTitle {
+    font-size: smaller;
+    text-align: center;
+}
+
+.gameWrapper{
+    width: 100%;
+    display: contents;
+}
+
+.hints {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.hint {
+    margin-top: 1rem;
+}
+
+.statBar {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 34%;
+}
+
+.stat {
+    width: 25%;
+    margin-bottom: 1rem;
+}
+
+.statNumber {
+    font-size: x-large;
+    text-align: center;
+}
+
+.statText {
+    font-size: smaller;
+    text-align: center;
+}
+
+.keyboard {
+    top: 60%;
+    position: relative;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lettersContainer {
+    display: flex;
+    position: relative;
+    top: 35%;
+    flex-wrap: wrap;
+    display: table;
+    margin: 0 auto;
+}
+
+.keyboardRow {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.letter {
+    width: 2rem;
+    height: 1.5rem;
+    border-style: solid;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 0.5rem;
+    margin-right: 0.1rem;
+    display: inline-table;
+}
+
+.space {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+}
+
+.keyboardButton {
+    width: 2rem;
+    border-style: solid;
+    border-radius: 5px;
+    height: 2rem;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 0.75rem;
+    margin-right: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.keyboardEnter {
+    width: 2rem;
+    border-style: solid;
+    border-radius: 5px;
+    height: 4.35rem;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-bottom: -3rem;
+}
+
+.keyboardBack {
+    width: 4.25rem;
+    border-style: solid;
+    border-radius: 5px;
+    height: 2rem;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 0.75rem;
+    margin-right: 0.2rem;
+}
+
+.countdown {
+    font-size: large;
+    position: relative;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18%;
+}
+
+.countdownTime {
+    display: inline;
+}
+
+.popupButton {
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.popupButtonMargin {
+    margin-right: 0.5rem;
+}
+
+.popupBackground {
+    background-color: rgba(0, 0, 0, 0.315);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.popupContent {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    width: 40%;
+    left: 30%;
+    top: 20%;
+}
+
+.popupContent[data-theme='light']{
+    background-color: white;
+    color: black;
+}
+
+.popupContent[data-theme='dark']{
+    background-color: black;
+    color: white;
+}
+
+.popupHeader {
+    width: 100%;
+}
+
+.popupClose {
+    top: -1.75rem;
+    position: relative;
+    text-align: right;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.popupTitle {
+    text-align: center;
+    font-size: x-large;
+}
+
+.settingsOption {
+    font-size: x-large;
+}
+
+.settingsHint {
+    font-size: smaller;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.credits{
+    font-size: medium;
+    text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+    .popupContent {
+        left: 5%;
+        top: 10%;
+        width: 85%;
+    }
+
+    .lettersContainer {
+        top: 20%;
+    }
+
+    .space {
+        width: 100%;
+        height: 100%;
+    }
+
+    .keyboard {
+        top: 30%;
+        width: 90%;
+    }
+
+    .keyboardRow {
+        width: 100%;
+    }
+
+    .keyboardBack {
+        width: 3.75rem;
+    }
+
+    .keyboardButtonBottom {
+        width: 1.66rem;
+    }
+
+    .hints {
+        margin-top: 0rem;
+        font-size: smaller;
+    }
+
+    .statBar {
+        width: 84%;
+    }
+
+    .countdown {
+        width: 90%;
+        top: 30%;
+    }
+}

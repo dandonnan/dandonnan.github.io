@@ -25,6 +25,37 @@ a:hover{
     content: 'Dan Donnan';
 }
 
+.burgerMenuIcon {
+    position: absolute;
+    top: 1.5rem;
+    cursor: pointer;
+}
+
+.burgerMenuIconSize {
+    font-size: xx-large !important;
+}
+
+.burgerMenuIcon:hover{
+    color: lightgray;
+}
+
+.burgerMenu {
+    font-size: 2rem;
+    width: 200px;
+    background-color: #4e4e4e;
+    border-top: 2px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    position: absolute;
+    left: 0;
+    top: 5.1rem;
+}
+
+.burgerMenuItem {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
 .mainContent {
     margin-top: 1rem;
     min-height: 90%;
@@ -50,6 +81,18 @@ a:hover{
     font-size: 3rem;
 }
 
+.featuredContent {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.featuredButton {
+    width: 300px;
+    height: 200px;
+}
+
 .projectSearch {
     height: 100%;
     font-size: xx-large;
@@ -63,6 +106,16 @@ a:hover{
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.projectImage {
+    width: 300px;
+    display: inline;
+}
+
+.projectText {
+    display: inline-block;
+    position: relative;
 }
 
 .projectTitle {
@@ -173,5 +226,10 @@ a:hover{
 
     .flexNotMobile{
         display: grid;
+    }
+
+    .featuredContent {
+        display: block;
+        width: 100%;
     }
 }

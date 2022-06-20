@@ -23,6 +23,8 @@ function RestrictToMatchingProjects(searchTerm) {
 
     searchTerm = searchTerm.toLowerCase();
 
+    let searchTerms = searchTerm.split(' ');
+
     let matchingProjects = 0;
 
     for (let i = 0; i < projects.length; i++){
@@ -33,9 +35,15 @@ function RestrictToMatchingProjects(searchTerm) {
         let matches = false;
 
         for (let j = 0; j < tagList.length; j++){
-            if (tagList[j].indexOf(searchTerm) > -1) {
-                matches = true;
-                matchingProjects++;
+            for (let k = 0; k < searchTerms.length; k++) {
+                if (tagList[j].indexOf(searchTerms[k]) > -1) {
+                    matches = true;
+                    matchingProjects++;
+                    break;
+                }
+            }
+
+            if (matches === true) {
                 break;
             }
         }
