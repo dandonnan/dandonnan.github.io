@@ -135,7 +135,7 @@
                 <div class="popupHeader">
                     <div class="popupTitle">Badges</div>
                 </div>
-                ----
+                <div id="unlockedBadges"></div>
             </div>
         </div>
 
@@ -180,8 +180,8 @@
                         </span>
                     </div>
                 </div>
-                Stats<br>
-                Badges Unlocked
+                <div id="winStats"></div>
+                <div id="newBadges"></div>
             </div>
         </div>
 
@@ -197,6 +197,19 @@
                 </div>
                 The correct answer was <b id="correctAnswer"></b><br><br>
                 Come back tomorrow to try again.
+            </div>
+        </div>
+
+        <div id="badgeInfo" class="popupBackground hidden">
+            <div class="popupContent" data-theme="dark">
+                <div id="badgeName" class="popupTitle"></div>
+                <div class="popupClose" onclick="HidePopup('badgeInfo')">
+                    <span class="material-symbols-outlined">
+                        cancel
+                    </span>
+                </div>
+                <div id="badgeIcon"></div>
+                <div id="badgeDescription" class="credits"></div>
             </div>
         </div>
 
@@ -237,7 +250,7 @@
                     <div class="keyboardButton" onclick="AddToGuess('L')">L</div>
                     <div class="keyboardEnter" onclick="Guess()">&ldsh;</div>
                 </div>
-                <div id="row3" class="keyboardRow">
+                <div id="row3" class="keyboardRow keyboardFinalRow">
                     <div class="keyboardBack" onclick="RemoveFromGuess()">&larr;</div>
                     <div class="keyboardButton keyboardButtonBottom" onclick="AddToGuess('Z')">Z</div>
                     <div class="keyboardButton keyboardButtonBottom" onclick="AddToGuess('X')">X</div>
@@ -266,7 +279,7 @@
                             sports_esports
                         </span>
                         Gamesies - Guess the title of a game.
-                    </a>
+                        </a>
                 </div>
                 <div>
                     <a href="../songsies/index.html" data-theme="dark">
@@ -281,5 +294,8 @@
 
         <script type="text/javascript" src="game.js"></script>
         <script type="text/javascript" src="../js/thingsies.js"></script>
+
+        <script async src="https://static.getclicky.com/101370774.js"></script>
+        <noscript><p><img alt="Clicky" width="1" height="1" src="https://in.getclicky.com/101370774ns.gif" /></p></noscript>
     </body>
 </html>

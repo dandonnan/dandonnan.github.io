@@ -49,6 +49,7 @@ a:hover{
     position: absolute;
     left: 0;
     top: 5.1rem;
+    z-index: 1;
 }
 
 .burgerMenuItem {

@@ -1,8 +1,7 @@
 const storageKey = 'showsies';
 
-// todo: sort out hints
 function GetFirstHint(puzzle) {
-    return `This movie was released in ${puzzle.Year}`;
+    return `This show first aired in ${puzzle.Year}`;
 }
 
 function GetSecondHint(puzzle) {
@@ -14,100 +13,145 @@ function GetThirdHint(puzzle) {
 }
 
 function GetFourthHint(puzzle) {
-    return `"${atob(puzzle.Quote)}"`;
+    return `The movie is a ${ParseCommaList(atob(puzzle.Genre))}"`;
 }
 
-// todo
+function UnlockBadges() {
+    let badgesUnlocked = [];
+
+    if (userData.badges.length === 0) {
+        for (let i = 0; i < badges.length; i++){
+            userData.badges.push({
+                Id: badges[i].Id,
+                Progress: 0,
+                Unlocked: false
+            });
+        }
+    }
+
+    if (userData.numberOfGuesses === 1 && userData.badges[0].Unlocked === false) {
+        userData.badges[0].Progress = 1;
+        userData.badges[0].Unlocked = true;
+
+        badgesUnlocked.push(0);
+    }
+
+    for (let i = 1; i < 3; i++){
+        if (userData.badges[i].Unlocked === false
+            && userData.stats.streak >= 1) {
+            userData.badges[i].Progress++;
+
+            if (userData.badges[i].Progress >= badges[i].Progress) {
+                userData.badges[i].Unlocked = true;
+                badgesUnlocked.push(i);
+            }
+        }
+    }
+
+    for (let i = 3; i < 8; i++){
+        if (userData.badges[i].Unlocked === false) {
+            userData.badges[i].Progress++;
+
+            if (userData.badges[i].Progress >= badges[i].Progress) {
+                userData.badges[i].Unlocked = true;
+                badgesUnlocked.push(i);
+            }
+        }
+    }
+
+    return badgesUnlocked;
+}
+
 const badges = [
     {
-        Id: 'FirstTry',
-        Name: 'First Try',
+        Id: 'LuckyGuess',
+        Name: 'Lucky Guess',
         Description: 'Correctly guess the title with the first guess.',
-        Icon: '',
+        Icon: 'images/badge1.png',
         Progress: 1
     },
     {
-        Id: 'WeekStreak',
-        Name: 'Weekly Streak',
-        Description: 'Correctly guess titles for 7 days in a row.',
-        Icon: '',
-        Progress: 7
+        Id: 'StreakTen',
+        Name: 'Box Office Brain',
+        Description: 'Correctly guess 10 titles in a row.',
+        Icon: 'images/badge2.png',
+        Progress: 10
     },
     {
-        Id: 'MonthStreak',
-        Name: 'Monthly Streak',
-        Description: 'Correctly guess titles for 30 days in a row.',
-        Icon: '',
+        Id: 'StreakThirty',
+        Name: 'Movie Magic',
+        Description: 'Correctly guess 30 titles in a row.',
+        Icon: 'images/badge3.png',
         Progress: 30
     },
     {
         Id: 'Five',
-        Name: 'Five',
+        Name: 'Cult Hits',
         Description: 'Correctly guess 5 titles.',
-        Icon: '',
+        Icon: 'images/badge4.png',
         Progress: 5
     },
     {
         Id: 'Ten',
-        Name: 'Ten',
+        Name: 'Indie Darlings',
         Description: 'Correctly guess 10 titles.',
-        Icon: '',
+        Icon: 'images/badge5.png',
         Progress: 10
     },
     {
         Id: 'TwentyFive',
-        Name: 'TwentyFive',
+        Name: 'Film Fan',
         Description: 'Correctly guess 25 titles.',
-        Icon: '',
+        Icon: 'images/badge6.png',
         Progress: 25
     },
     {
         Id: 'Fifty',
-        Name: 'Fifty',
+        Name: 'Film Buff',
         Description: 'Correctly guess 50 titles.',
-        Icon: '',
+        Icon: 'images/badge7.png',
         Progress: 50
     },
     {
         Id: 'OneHundred',
-        Name: 'OneHundred',
+        Name: 'Movie Mastermind',
         Description: 'Correctly guess 100 titles.',
-        Icon: '',
+        Icon: 'images/badge8.png',
         Progress: 100
     }
 ]
 
 const puzzles = [
     {
-        Id: 30052022,
-        Name: 'R3VhcmRpYW5zIG9mIHRoZSBHYWxheHk=',
-        Director: 'SmFtZXMgR3Vubg==',
-        Year: 2014,
-        Stars: 'Q2hyaXMgUHJhdHQsWm9lIFNhbGRhbmEsRGF2ZSBCYXV0aXN0YQ==',
-        Quote: 'SSBhbSBHcm9vdC4='
+        Id: 26082022,
+        Name: 'VG95IFN0b3J5',
+        Director: 'Sm9obiBMYXNzZXRlcg==',
+        Year: 1995,
+        Stars: 'VG9tIEhhbmtzLFRpbSBBbGxlbg==',
+        Genre: 'dW5kZWZpbmVk'
     },
     {
-        Id: 29052022,
-        Name: 'UmVhZHkgUGxheWVyIE9uZQ==',
+        Id: 27082022,
+        Name: 'TWFyeSBQb3BwaW5z',
+        Director: 'Um9iZXJ0IFN0ZXZlbnNvbg==',
+        Year: 1964,
+        Stars: 'SnVsaWUgQW5kcmV3cyxEaWNrIFZhbiBEeWtl',
+        Genre: 'dW5kZWZpbmVk'
+    },
+    {
+        Id: 28082022,
+        Name: 'SnVyYXNzaWMgUGFyaw==',
         Director: 'U3RldmVuIFNwaWVsYmVyZw==',
-        Year: 2017,
-        Stars: 'T2xpdmlhIENvb2tl',
-        Quote: 'Pz8/'
+        Year: 1993,
+        Stars: 'U2FtIE5laWxsLExhdXJhIERlcm4sSmVmZiBHb2xkYmx1bQ==',
+        Genre: 'dW5kZWZpbmVk'
     },
     {
-        Id: 27052022,
-        Name: 'RmFudGFzdGljIE1yIEZveA==',
-        Director: 'KCgpKQ==',
-        Year: 2017,
-        Stars: 'Pj4=',
-        Quote: 'Pz8/'
-    },
-    {
-        Id: 26052022,
-        Name: 'SnVubw==',
-        Director: 'KCgpKQ==',
-        Year: 2017,
-        Stars: 'Pj4=',
-        Quote: 'Pz8/'
-    }      
+        Id: 29082022,
+        Name: 'U2hyZWs=',
+        Director: 'Tm9ib2R5IHJlbWVtYmVycw==',
+        Year: 2001,
+        Stars: 'TWlrZSBNeWVycyxFZGRpZSBNdXJwaHksQ2FtZXJvbiBEaWF6',
+        Genre: 'dW5kZWZpbmVk'
+    }         
 ]
