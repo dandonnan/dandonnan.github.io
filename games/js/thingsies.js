@@ -487,6 +487,10 @@ function ShowPopup(popupId) {
 function HidePopup(popupId) {
     displayingPopup = false;
     HideElement(popupId);
+
+    if (popupId === 'howToPlay') {
+        HideElement('firstTimePolicy');
+    }
 }
 
 function PopulateLettersFromGuess() {

@@ -25,7 +25,7 @@ a[data-theme="dark"] {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .topBar {
