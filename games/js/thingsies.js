@@ -11,11 +11,9 @@ const millisecondsInDay = 86400000;
 const themeDark = 'dark';
 const themeLight = 'light';
 
-// TODO: Fix bug with remove letters
 // TODO: Use correct recycle date
-// TODO: Icons for non-film games
-// TODO: Put in proper puzzles
 // TODO: Check CSS for words on longer titles (on mobile)
+// TODO: Add meta tags and proper titles to pages
 
 let guesses = 0;
 let hints = [];
@@ -242,6 +240,7 @@ function Start() {
     // If the user has not attempted a puzzle before, show the how to play popup
     if (userData.lastPuzzleId === 0) {
         ShowPopup('howToPlay');
+        ShowElement('firstTimePolicy');
     }
 
     // If today's puzzle is different from the last puzzle, reset the guesses
@@ -437,28 +436,42 @@ function AddToGuess(character) {
     }
 }
 
+// Remove a letter from the guess
 function RemoveFromGuess() {
-    // todo: fix this
-
+    // Get all letters displayed
     let letters = document.getElementsByClassName('letter');
 
+    // If the current guess is not blank
     if (currentGuess.length > 0) {
+        // Get the index of the last letter in the guess
         let lastIndex = currentGuess.length - 1;
 
+        // Get the first index of a space in the guess - spaces can not
+        // be entered by a user, but will get added between letters that
+        // are in the correct place
         let firstSpace = currentGuess.indexOf(' ');
 
+        // If there is a space, change the last index to be before it
         lastIndex = firstSpace > -1 ? firstSpace - 1 : lastIndex;
 
+        // Get an appendix - if there is a space, this is everything from the space
+        // onwards, otherwise this is blank
         let appendix = firstSpace > -1 ? currentGuess.substring(firstSpace) : '';
 
+        // Work back through each letter in the guess until at the start
         while (lastIndex >= 0) {
+            // If the letter at the current index is correct
             if (letters[lastIndex].classList.contains('letterCorrect')) {
-                appendix = ' ' + currentGuess[lastIndex] + appendix;
+                // Change the appendix to begin with the current letter
+                appendix = currentGuess[lastIndex] + appendix;
             }
             else {
-                currentGuess = currentGuess.substring(0, lastIndex) + appendix;
+                // Set the current guess so it includes everything from the start up
+                // to before the space, then add a space before the appendix
+                currentGuess = currentGuess.substring(0, lastIndex) + ' ' + appendix;
                 lastIndex = 0;
 
+                // Populate the letters
                 PopulateLettersFromGuess();
             }
 
@@ -488,30 +501,43 @@ function HidePopup(popupId) {
     displayingPopup = false;
     HideElement(popupId);
 
+    // If the popup is the How to Play one, hide the link
+    // to the privacy policy (it can be accessed again in settings)
     if (popupId === 'howToPlay') {
         HideElement('firstTimePolicy');
     }
 }
 
+// Populate the letters from the guess
 function PopulateLettersFromGuess() {
+    // Get all letters
     let letters = document.getElementsByClassName('letter');
 
+    // Make all letters contain a space
     for (let i = 0; i < letters.length; i++){
         letters[i].innerHTML = '&nbsp;';
     }
 
+    // Go through each letter in the current guess
     for (let i = 0; i < currentGuess.length; i++){
+        // If the letter has a value
         if (currentGuess[i] !== ' ') {
+            // Set that value inside the box
             letters[i].innerText = currentGuess[i];
         }
     }
 }
 
+// Add a hint
 function AddHint() {
+    // If the player has hints enabled
     if (userData.useHints === true) {
 
+        // Get the puzzle
         let puzzle = GetPuzzle();
 
+        // Based on the current number of guesses, reveal
+        // the relevant hint
         switch (guesses) {
             case 1:
                 RevealHint('hint1', GetFirstHint(puzzle));
@@ -535,18 +561,26 @@ function AddHint() {
     }
 }
 
+// Reveal a hint
 function RevealHint(elementId, hint) {
+    // Get the element where the hint will display
     let element = document.getElementById(elementId);
 
+    // Show the element
     element.classList.remove('hidden');
 
+    // Set the hint inside the element
     element.innerText = hint;
 }
 
+// Hide a hint
 function HideHint(elementId) {
+    // Get the element where the hint is displayed
     let element = document.getElementById(elementId);
 
+    // If the element is not hidden
     if (element.classList.contains('hidden') === false) {
+        // Hide it
         element.classList.add('hidden');
     }
 }
@@ -727,14 +761,19 @@ function ChangeTheme() {
     SaveData();
 }
 
+// Toggle the hints
 function ToggleHints() {
+    // If hints are enabled
     if (userData.useHints === true) {
+        // Disable them
         userData.useHints = false;
     }
     else {
+        // Otherwise enable them
         userData.useHints = true;
     }
 
+    // If hints are disabled, hide them all
     if (userData.useHints === false) {
         HideHint('hint1');
         HideHint('hint2');
@@ -742,21 +781,34 @@ function ToggleHints() {
         HideHint('hint4');
     }
     else {
+        // Otherwise get the number of guesses
         let totalGuesses = guesses;
 
+        // Go through the number of guesses
         for (let i = 0; i < totalGuesses; i++){
             guesses = i + 1;
+            
+            // Add a hint for each guess
             AddHint();
         }
     }
 
+    // Save the hint status
     SaveData();
 }
 
+// Setup the stats display
 function SetupStats() {
+    // Set the value for games played
     document.getElementById('statPlayed').innerText = userData.stats.played;
+
+    // Set the value for correct guesses - if no games have been played this should be 0
+    // otherwise convert into a percentage and round it so it does not display too many
+    // decimal places
     document.getElementById('statCorrect').innerText = userData.stats.played === 0 ? 0 :
-                    Math.round((userData.stats.correct / userData.stats.played) * 1000) / 10;
+        Math.round((userData.stats.correct / userData.stats.played) * 1000) / 10;
+    
+    // Set the relevant values
     document.getElementById('statStreak').innerText = userData.stats.streak;
     document.getElementById('statMaxStreak').innerText = userData.stats.maxStreak;
 
@@ -766,37 +818,49 @@ function SetupStats() {
     document.getElementById('statGuess4').innerText = userData.stats.guesses[3];
     document.getElementById('statGuess5').innerText = userData.stats.guesses[4];
 
+    // Clear the badges - they are generated separately
     document.getElementById('unlockedBadges').innerHTML = '';
 }
 
+// Setup the badges display
 function SetupStatBadges() {
     let unlockedBadges = '';
 
+    // For each badge
     for (let i = 0; i < userData.badges.length; i++){
+        // If the badge is unlocked, get a div for it to add to the page
         if (userData.badges[i].Unlocked === true) {
             unlockedBadges += GetBadgeDiv(badges[i]);
         }
     }
 
+    // If no badges are unlocked, set a message
     if (unlockedBadges === '') {
         unlockedBadges = '<div class="credits">Keep playing to unlock badges.</div>';
     }
 
+    // Set any divs and messages onto the page
     document.getElementById('unlockedBadges').innerHTML = '<div class="statBar">' + unlockedBadges + "</div>";
 }
 
+// View a badge by displaying a popup for it
 function ViewBadge(id) {
+    // Get the badge from the list by matching the id
     let badge = badges.find(b => b.Id === id);
 
+    // Set the name, description and icon on the display
     document.getElementById('badgeName').innerText = badge.Name;
     document.getElementById('badgeIcon').innerHTML = `<img src="${badge.Icon}" class="badge" />`;
     document.getElementById('badgeDescription').innerText = badge.Description;
 
+    // Show the badge popup
     ShowPopup('badgeInfo');
 }
 
+// Get a div for a badge that displays the icon and the badge's name
 function GetBadgeDiv(badge) {
     return `<div class="stat"><img src="${badge.Icon}" class="badgeSmall" onclick="ViewBadge('${badge.Id}')" /><div class="statText">${badge.Name}</div></div>`;
 }
 
+// Call the start method once the script has loaded
 Start();
