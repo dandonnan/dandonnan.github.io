@@ -126,6 +126,11 @@ a[data-theme="dark"] {
     left: -1.15rem;
 }
 
+.wordWrapper {
+    width: fit-content;
+    display: inline-flex;
+}
+
 .letter {
     width: 2rem;
     height: 1.5rem;
@@ -289,6 +294,14 @@ a[data-theme="dark"] {
 
     .lettersContainer {
         top: 20%;
+    }
+
+    .wordWrapper {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0.5rem;
+        overflow: scroll;
     }
 
     .space {

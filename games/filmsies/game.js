@@ -752,7 +752,7 @@ const puzzles = [
         Director: 'UmlkbGV5IFNjb3R0',
         Year: 2000,
         Stars: 'UnVzc2VsbCBDcm93ZSxKb2FxdWluIFBob2VuaXgsQ29ubmllIE5pZWxzZW4=',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 19092023,
@@ -1328,7 +1328,7 @@ const puzzles = [
         Director: 'SmFuIGRlIEJvbnQ=',
         Year: 1994,
         Stars: 'S2VhbnUgUmVldmVzLERlbm5pcyBIb3BwZXIsU2FuZHJhIEJ1bGxvY2s=',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 12052023,
@@ -1352,7 +1352,7 @@ const puzzles = [
         Director: 'Sm9obiBNY1RpZXJuYW4=',
         Year: 1987,
         Stars: 'QXJub2xkIFNjaHdhcnplbmVnZ2VyLENhcmwgV2VhdGhlcnMsS2V2aW4gUGV0ZXIgSGFsbA==',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 6042023,
@@ -1368,7 +1368,7 @@ const puzzles = [
         Director: 'UGF1bCBWZXJob2V2ZW4=',
         Year: 1990,
         Stars: 'QXJub2xkIFNjaHdhcnplbmVnZ2VyLFNoYXJvbiBTdG9uZSxNaWNoYWVsIElyb25zaWRl',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 27092022,
@@ -1416,7 +1416,7 @@ const puzzles = [
         Director: 'U2ltb24gV2VzdA==',
         Year: 1997,
         Stars: 'Tmljb2xhcyBDYWdlLEpvaG4gQ3VzYWNrLEpvaG4gTWFsa292aWNo',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 21092023,
@@ -1440,7 +1440,7 @@ const puzzles = [
         Director: 'RG9uIFNpZWdlbCAmIENsaWVudCBFYXN0d29vZA==',
         Year: 1971,
         Stars: 'Q2xpbnQgRWFzdHdvb2QsQW5kcmV3IFJvYmluc29uLEhhcnJ5IEd1YXJkaW5v',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 1052023,
@@ -1520,7 +1520,7 @@ const puzzles = [
         Director: 'UGV0ZXIgSmFja3Nvbg==',
         Year: 2005,
         Stars: 'TmFvbWkgV2F0dHMsSmFjayBCbGFjayxBZHJpZW4gQnJvZHk=',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 19062023,
@@ -1664,7 +1664,7 @@ const puzzles = [
         Director: 'VGltdXIgQmVrbWFtYmV0b3Y=',
         Year: 2008,
         Stars: 'QW5nZWxpbmEgSm9saWUsSmFtZXMgTWNBdm95LE1vcmdhbiBGcmVlbWFu',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 14082023,
@@ -2144,7 +2144,7 @@ const puzzles = [
         Director: 'R2FyeSBSb3Nz',
         Year: 2012,
         Stars: 'SmVubmlmZXIgTGF3cmVuY2UsSm9zaCBIdXRjaGVyc29uLExpYW0gSGVtc3dvcnRo',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 31082023,
@@ -2165,7 +2165,7 @@ const puzzles = [
     {
         Id: 17122022,
         Name: 'SG9ycmlibGUgQm9zc2Vz',
-        Director: 'U2V0aCBHb3Jkbw==',
+        Director: 'U2V0aCBHb3Jkb24=',
         Year: 2011,
         Stars: 'SmFzb24gQmF0ZW1hbixDaGFybGllIERheSxKYXNvbiBTdWRlaWtpcw==',
         Genre: 'Q29tZWR5'
@@ -2800,7 +2800,7 @@ const puzzles = [
         Director: 'SmF5IENoYW5kcmFzZWtoYXI=',
         Year: 2005,
         Stars: 'Sm9obm55IEtub3h2aWxsZSxTZWFubiBXaWxsaWFtIFNjb3R0LEplc3NpY2EgU2ltcHNvbg==',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 4032023,
@@ -2992,7 +2992,7 @@ const puzzles = [
         Director: 'Q2hyaXN0b3BoZXIgTWNRdWFycmll',
         Year: 2012,
         Stars: 'VG9tIENydWlzZSxSb3NhbXVuZCBQaWtlLFJvYmVydCBEdXZhbGw=',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 15092023,
@@ -3008,7 +3008,7 @@ const puzzles = [
         Director: 'VG9ueSBHaWxyb3k=',
         Year: 2012,
         Stars: 'SmVyZW15IFJlbm5lcixFZHdhcmQgTm9ydG9uLFJhY2hlbCBXZWlzeg==',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 28122023,
@@ -3120,7 +3120,7 @@ const puzzles = [
         Director: 'TWFydGluIENhbXBiZWxs',
         Year: 1998,
         Stars: 'QW50b25pbyBCYW5kZXJhcyxBbnRob255IEhvcGtpbnMsQ2F0aGVyaW5lIFpldGEtSm9uZXM=',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 15122022,
@@ -3128,7 +3128,7 @@ const puzzles = [
         Director: 'Sm9lIERhbnRl',
         Year: 1998,
         Stars: 'S2lyc3RlbiBEdW5zdCxHcmVnb3J5IFNtaXRoLFRvbW15IExlZSBKb25lcw==',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 19052023,
@@ -3152,7 +3152,7 @@ const puzzles = [
         Director: 'UGV0ZXIgRmFpbWFu',
         Year: 1986,
         Stars: 'UGF1bCBIb2dhbixMaW5kYSBLb3psb3dza2ksTWFyayBCbHVt',
-        Genre: 'QWN0aW8='
+        Genre: 'QWN0aW9u'
     },
     {
         Id: 3092023,
@@ -3181,7 +3181,7 @@ const puzzles = [
     {
         Id: 24102022,
         Name: 'VGhlIE1hemUgUnVubmVy',
-        Director: 'V2VzIEJhbA==',
+        Director: 'V2VzIEJhbGw=',
         Year: 2014,
         Stars: 'RHlsYW4gTydCcmllbixLYXlhIFNjb2RlbGFyaW8sVGhvbWFzIEJyb2RpZS1TYW5nc3Rlcg==',
         Genre: 'U2NpLUZp'
