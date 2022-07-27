@@ -12,7 +12,6 @@ const themeDark = 'dark';
 const themeLight = 'light';
 
 // TODO: Use correct recycle date
-// TODO: Check CSS for words on longer titles (on mobile)
 // TODO: Add meta tags and proper titles to pages
 
 let guesses = 0;
@@ -870,51 +869,3 @@ function GetBadgeDiv(badge) {
 
 // Call the start method once the script has loaded
 Start();
-
-function TrickDate() {
-    let date = document.getElementById('calDate').value;
-
-    let day = date.substring(8, 10);
-
-    if (day.indexOf('0') === 0) {
-        day = day.substring(1, 2);
-    }
-
-    date = `${day}${date.substring(5, 7)}${date.substring(0, 4)}`;
-
-    let puzzle = puzzles.find(m => m.Id === parseInt(date));
-
-    currentPuzzle = puzzle;
-
-    RevealHint('hint1', GetFirstHint(puzzle));
-    RevealHint('hint2', GetSecondHint(puzzle));
-    RevealHint('hint3', GetThirdHint(puzzle));
-    RevealHint('hint4', GetFourthHint(puzzle));
-
-    currentGuess = '';
-
-    PopulateLettersFromGuess();
-
-    let title = atob(puzzle.Name);
-
-    let html = '';
-
-    let element = document.getElementById('title');
-
-    html += '<div class="wordWrapper">';
-
-    for (let i = 0; i < title.length; i++){
-        if (title[i] !== ' ') {
-            html += '<div class="letter">&nbsp;</div>';
-        }
-        else {
-            html += '</div>';
-            html += '<div class="space"></div>';
-            html += '<div class="wordWrapper">';
-        }
-    }
-
-    html += "</div>";
-
-    element.innerHTML = html;
-}
