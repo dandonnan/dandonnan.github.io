@@ -11,9 +11,6 @@ const millisecondsInDay = 86400000;
 const themeDark = 'dark';
 const themeLight = 'light';
 
-// TODO: Use correct recycle date
-// TODO: Add meta tags and proper titles to pages
-
 let guesses = 0;
 let hints = [];
 
@@ -257,6 +254,10 @@ function Start() {
         // If the user has used all their guesses, or has guessed correctly then display the countdown for the next puzzle
         if (userData.lastGuess === titleWithoutSpaces.toUpperCase() || userData.numberOfGuesses >= maxGuesses) {
             ShowCountdown();
+            RevealHint('hint1', GetFirstHint());
+            RevealHint('hint2', GetSecondHint());
+            RevealHint('hint3', GetThirdHint());
+            RevealHint('hint4', GetFourthHint());
         }
 
         currentGuess = userData.lastGuess;
@@ -624,10 +625,9 @@ function GetPuzzle() {
 
 // Get a recycled puzzle
 function GetRecycledPuzzle() {
-    //let recycleStartDate = 1725148800000;
+    // 1725148800000
 
-    // todo: remove this and use the one above
-    let recycleStartDate = 1655510400000;
+    let recycleStartDate = 1655510400000; // 1655510400000
 
     // Get midnight from today's date in UTC
     let today = new Date().setUTCHours(0, 0, 0, 0);
