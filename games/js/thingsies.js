@@ -254,10 +254,10 @@ function Start() {
         // If the user has used all their guesses, or has guessed correctly then display the countdown for the next puzzle
         if (userData.lastGuess === titleWithoutSpaces.toUpperCase() || userData.numberOfGuesses >= maxGuesses) {
             ShowCountdown();
-            RevealHint('hint1', GetFirstHint());
-            RevealHint('hint2', GetSecondHint());
-            RevealHint('hint3', GetThirdHint());
-            RevealHint('hint4', GetFourthHint());
+            RevealHint('hint1', GetFirstHint(puzzle));
+            RevealHint('hint2', GetSecondHint(puzzle));
+            RevealHint('hint3', GetThirdHint(puzzle));
+            RevealHint('hint4', GetFourthHint(puzzle));
         }
 
         currentGuess = userData.lastGuess;
@@ -625,9 +625,8 @@ function GetPuzzle() {
 
 // Get a recycled puzzle
 function GetRecycledPuzzle() {
-    // 1725148800000
 
-    let recycleStartDate = 1655510400000; // 1655510400000
+    let recycleStartDate = 1655510400000; // 1655510400000 1725148800000
 
     // Get midnight from today's date in UTC
     let today = new Date().setUTCHours(0, 0, 0, 0);
