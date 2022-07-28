@@ -9,11 +9,11 @@ function GetSecondHint(puzzle) {
 }
 
 function GetThirdHint(puzzle) {
-    return `It featured on the album ${ParseCommaList(atob(puzzle.Album))}`;
+    return `It featured on the album ${atob(puzzle.Album)}`;
 }
 
 function GetFourthHint(puzzle) {
-    return `Lyrics include: "${ParseCommaList(atob(puzzle.Lyrics))}"`;
+    return `Lyrics include: "${atob(puzzle.Lyrics)}"`;
 }
 
 function UnlockBadges() {

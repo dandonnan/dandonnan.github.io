@@ -13,7 +13,7 @@ function GetThirdHint(puzzle) {
 }
 
 function GetFourthHint(puzzle) {
-    return `The movie fits the ${ParseCommaList(atob(puzzle.Genre))} genre`;
+    return `The movie fits the ${atob(puzzle.Genre)} genre`;
 }
 
 function UnlockBadges() {
