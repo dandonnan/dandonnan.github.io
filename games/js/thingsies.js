@@ -648,7 +648,7 @@ function GetPuzzle() {
 function GetRecycledPuzzle() {
 
     //let recycleStartDate = 1725148800000; // 1655510400000
-    let recycleStartDate = 1655510400000;
+    let recycleStartDate = 1655510400000; // 1655510400000
 
     // Get midnight from today's date in UTC
     let today = new Date().setUTCHours(0, 0, 0, 0);
@@ -760,6 +760,14 @@ function LoadData() {
     // If there is data, convert it from a JSON string into an object
     if (data !== null && data !== undefined) {
         userData = JSON.parse(data);
+    }
+
+    if (userData.stats.pointsToday === undefined) {
+        userData.stats.pointsToday = 0;
+    }
+
+    if (userData.stats.totalPoints === undefined) {
+        userData.stats.totalPoints = 0;
     }
 }
 
