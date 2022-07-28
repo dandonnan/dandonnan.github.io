@@ -36,6 +36,8 @@ let userData = {
         incorrect: 0,
         streak: 0,
         maxStreak: 0,
+        pointsToday: 0,
+        totalPoints: 0,
         guesses: [
             0,
             0,
@@ -254,10 +256,7 @@ function Start() {
         // If the user has used all their guesses, or has guessed correctly then display the countdown for the next puzzle
         if (userData.lastGuess === titleWithoutSpaces.toUpperCase() || userData.numberOfGuesses >= maxGuesses) {
             ShowCountdown();
-            RevealHint('hint1', GetFirstHint(puzzle));
-            RevealHint('hint2', GetSecondHint(puzzle));
-            RevealHint('hint3', GetThirdHint(puzzle));
-            RevealHint('hint4', GetFourthHint(puzzle));
+            ShowAllHints(puzzle);
         }
 
         currentGuess = userData.lastGuess;
@@ -321,7 +320,7 @@ function Guess() {
 
         // If the guess is correct then display the win popup
         if (title.toUpperCase() === currentGuess) {
-            Win();
+            Win(puzzle);
         }
         else {
             // Increase the number of guesses
@@ -343,7 +342,7 @@ function Guess() {
 }
 
 // Show the win popup
-function Win() {
+function Win(puzzle) {
     // Increase the amount correct and win streak progress
     userData.stats.correct++;
     userData.stats.streak++;
@@ -355,6 +354,17 @@ function Win() {
 
     // Set the number of guesses that the player guessed in
     userData.stats.guesses[userData.numberOfGuesses - 1]++;
+
+    // Work out the number of points today (invert the number of guesses and multiply by 10 for 50, 40, etc.)
+    userData.stats.pointsToday = (maxGuesses - userData.numberOfGuesses + 1) * 10;
+
+    // If the user is on a streak, give an extra 5 points multiplied by the steak amount
+    if (userData.stats.streak > 1) {
+        userData.stats.pointsToday += userData.stats.streak * 5;
+    }
+
+    // Increase the total number of points by the amount awarded today
+    userData.stats.totalPoints += userData.stats.pointsToday;
 
     // Update the stats popup
     SetupStats();
@@ -395,6 +405,9 @@ function Win() {
 
     // Show the popup
     ShowPopup('won');
+
+    // Show all hints
+    ShowAllHints(puzzle);
 
     // Display the countdown on the main page
     ShowCountdown();
@@ -567,6 +580,14 @@ function AddHint() {
     }
 }
 
+// Show all hints
+function ShowAllHints(puzzle) {
+    RevealHint('hint1', GetFirstHint(puzzle));
+    RevealHint('hint2', GetSecondHint(puzzle));
+    RevealHint('hint3', GetThirdHint(puzzle));
+    RevealHint('hint4', GetFourthHint(puzzle));
+}
+
 // Reveal a hint
 function RevealHint(elementId, hint) {
     // Get the element where the hint will display
@@ -626,7 +647,8 @@ function GetPuzzle() {
 // Get a recycled puzzle
 function GetRecycledPuzzle() {
 
-    let recycleStartDate = 1655510400000; // 1655510400000 1725148800000
+    //let recycleStartDate = 1725148800000; // 1655510400000
+    let recycleStartDate = 1655510400000;
 
     // Get midnight from today's date in UTC
     let today = new Date().setUTCHours(0, 0, 0, 0);
@@ -816,6 +838,9 @@ function SetupStats() {
     document.getElementById('statStreak').innerText = userData.stats.streak;
     document.getElementById('statMaxStreak').innerText = userData.stats.maxStreak;
 
+    document.getElementById('statPointsToday').innerText = userData.stats.pointsToday;
+    document.getElementById('statTotalPoints').innerText = userData.stats.totalPoints;
+
     document.getElementById('statGuess1').innerText = userData.stats.guesses[0];
     document.getElementById('statGuess2').innerText = userData.stats.guesses[1];
     document.getElementById('statGuess3').innerText = userData.stats.guesses[2];
@@ -864,6 +889,30 @@ function ViewBadge(id) {
 // Get a div for a badge that displays the icon and the badge's name
 function GetBadgeDiv(badge) {
     return `<div class="stat"><img src="${badge.Icon}" class="badgeSmall" onclick="ViewBadge('${badge.Id}')" /><div class="statText">${badge.Name}</div></div>`;
+}
+
+// Copy the stats to the clipboard
+function ShareStatsToClipboard() {
+    // Get the game name from the storage key, turning the first character to upper case
+    let gameName = storageKey[0].toUpperCase() + storageKey.substring(1, storageKey.length);
+
+    // Create a string to put on the clipboard, consisting of the game name, date and points
+    let contentToShare = `${gameName} - ${new Date(Date.now()).toLocaleDateString()}\n\nPoints Today: ${userData.stats.pointsToday}\nTotal Points: ${userData.stats.totalPoints}`;
+
+    // Set the string on the clipboard
+    navigator.clipboard.writeText(contentToShare);
+
+    // Get all notification elements
+    let notifications = document.querySelectorAll('[id=shared]');
+
+    // For each notification element
+    for (let i = 0; i < notifications.length; i++){
+        // Show the text to indicate the string is copied
+        notifications[i].classList.remove('hidden');
+
+        // Hide the text after 2 seconds
+        setTimeout(() => notifications[i].classList.add('hidden'), 2000);
+    }
 }
 
 // Call the start method once the script has loaded

@@ -1,10 +1,10 @@
 <html>
     <head>
-        <title>Test</title>
+        <title>Gamesies</title>
 
         <meta name="charset" content="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <!-- todo: meta tags -->
+        <meta name="description" content="Guess the title of a game. There is a different title every day." />
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,20 +98,20 @@
                 </div>
                 <div class="statBar">
                     <div class="stat">
+                        <div id="statTotalPoints" class="statNumber">0</div>
+                        <div class="statText">Total Points</div>
+                    </div>
+                    <div class="stat">
+                        <div id="statPointsToday" class="statNumber">0</div>
+                        <div class="statText">Points Today</div>
+                    </div>
+                    <div class="stat">
                         <div id="statPlayed" class="statNumber">0</div>
                         <div class="statText">Played</div>
                     </div>
                     <div class="stat">
                         <div id="statCorrect" class="statNumber">0</div>
                         <div class="statText">% Correct</div>
-                    </div>
-                    <div class="stat">
-                        <div id="statStreak" class="statNumber">0</div>
-                        <div class="statText">Current Streak</div>
-                    </div>
-                    <div class="stat">
-                        <div id="statMaxStreak" class="statNumber">0</div>
-                        <div class="statText">Max Streak</div>
                     </div>
                 </div>
                 <div class="statBar">
@@ -131,10 +131,26 @@
                         <div id="statGuess4" class="statNumber">0</div>
                         <div class="statText">Fourth Guess</div>
                     </div>
+                </div>
+                <div class="statBar">
                     <div class="stat">
                         <div id="statGuess5" class="statNumber">0</div>
                         <div class="statText">Final Guess</div>
                     </div>
+                    <div class="stat">
+                        <div id="statStreak" class="statNumber">0</div>
+                        <div class="statText">Current Streak</div>
+                    </div>
+                    <div class="stat">
+                        <div id="statMaxStreak" class="statNumber">0</div>
+                        <div class="statText">Max Streak</div>
+                    </div>
+                </div>
+                <div class="shareWrapper" onclick="ShareStatsToClipboard()">
+                    <div class="share">
+                        Share
+                    </div>
+                    <div id="shared" class="hidden">Copied to clipboard</div>
                 </div>
                 <br><br>
                 <div class="popupHeader">
@@ -187,6 +203,12 @@
                     </div>
                 </div>
                 <div id="winStats"></div>
+                <div class="shareWrapper" onclick="ShareStatsToClipboard()">
+                    <div class="share">
+                        Share
+                    </div>
+                    <div id="shared" class="hidden">Copied to clipboard</div>
+                </div>
                 <div id="newBadges"></div>
             </div>
         </div>
@@ -203,6 +225,12 @@
                 </div>
                 The correct answer was <b id="correctAnswer"></b><br><br>
                 Come back tomorrow to try again.
+                <div class="shareWrapper" onclick="ShareStatsToClipboard()">
+                    <div class="share">
+                        Share
+                    </div>
+                    <div id="shared" class="hidden">Copied to clipboard</div>
+                </div>
             </div>
         </div>
 
