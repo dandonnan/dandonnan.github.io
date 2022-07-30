@@ -136,6 +136,7 @@ a[data-theme="dark"] {
     height: 1.5rem;
     border-style: solid;
     border-radius: 5px;
+    border-width: thin;
     text-align: center;
     padding-top: 0.5rem;
     margin-right: 0.1rem;
@@ -157,6 +158,7 @@ a[data-theme="dark"] {
     width: 2rem;
     border-style: solid;
     border-radius: 5px;
+    border-width: thin;
     height: 2rem;
     cursor: pointer;
     text-align: center;
@@ -169,6 +171,7 @@ a[data-theme="dark"] {
     width: 2rem;
     border-style: solid;
     border-radius: 5px;
+    border-width: thin;
     height: 4.35rem;
     cursor: pointer;
     text-align: center;
@@ -180,6 +183,7 @@ a[data-theme="dark"] {
     width: 4.25rem;
     border-style: solid;
     border-radius: 5px;
+    border-width: thin;
     height: 2rem;
     cursor: pointer;
     text-align: center;

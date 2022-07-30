@@ -488,6 +488,7 @@ function RemoveFromGuess() {
                 // Set the current guess so it includes everything from the start up
                 // to before the space, then add a space before the appendix
                 currentGuess = currentGuess.substring(0, lastIndex) + ' ' + appendix;
+                currentGuess = currentGuess.trimEnd();
                 lastIndex = 0;
 
                 // Populate the letters
@@ -648,7 +649,7 @@ function GetPuzzle() {
 function GetRecycledPuzzle() {
 
     //let recycleStartDate = 1725148800000; // 1655510400000
-    let recycleStartDate = 1655510400000; // 1655510400000
+    let recycleStartDate = 1655510400000;
 
     // Get midnight from today's date in UTC
     let today = new Date().setUTCHours(0, 0, 0, 0);
