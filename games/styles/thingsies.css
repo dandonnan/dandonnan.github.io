@@ -337,7 +337,7 @@ a[data-theme="dark"] {
     .keyboard {
         top: 30%;
         width: 90%;
-        left: -0.5rem;
+        left: 0.25rem;
     }
 
     .keyboardFinalRow {
