@@ -736,7 +736,7 @@ function Countdown() {
     let difference = tomorrow - now;
 
     // If it is tomorrow then refresh the page to get the latest puzzle
-    if (difference < 0) {
+    if (difference <= 0) {
         window.location.reload();
     }
 
