@@ -310,6 +310,18 @@ a[data-theme="dark"] {
     border-color: black;
 }
 
+.otherGame {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-top: 1rem;
+}
+
+.gameLink {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 900px) {
     .popupContent {
         left: 5%;

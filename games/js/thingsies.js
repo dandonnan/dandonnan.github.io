@@ -717,6 +717,9 @@ function ShowCountdown() {
     // Show the countdown
     ShowElement('countdown');
 
+    // Display a random other game
+    document.getElementById('otherGame').innerHTML = GetOtherGameLink();
+
     // Start counting down
     Countdown();
 
@@ -922,6 +925,48 @@ function ShareStatsToClipboard() {
         // Hide the text after 2 seconds
         setTimeout(() => notifications[i].classList.add('hidden'), 2000);
     }
+}
+
+// A list of other games with links on where to play them
+const otherGames = [
+    {
+        logo: '../../images/logo_crappybird.png',
+        windows: 'https://dandonnan.itch.io/crappy-bird',
+        android: 'https://play.google.com/store/apps/details?id=com.dandon.crappybird',
+    },
+    {
+        logo: '../../images/logo_biggerfish.png',
+        windows: 'https://dandonnan.itch.io/bigger-fish',
+        android: 'https://play.google.com/store/apps/details?id=com.dandon.biggerfish',
+    }
+]
+
+// Get a link to a random other game
+function GetOtherGameLink() {
+    // Get a random number up to the number of games
+    let index = Math.floor(Math.random() * otherGames.length);
+
+    // Get the game that matches the random number
+    let otherGame = otherGames[index];
+    
+    // Get the HTML to display the logo
+    let link = `<div class="otherGame"><img src="${otherGame.logo}" width="200px" />`;
+
+    // If an Android link is set, add that to the generated HTML
+    if (otherGame.android !== null && otherGame.android !== undefined) {
+        link += `<a href="${otherGame.android}" target="_blank"><img class="gameLink" src="../../images/android.png" width="20px" /></a>`;
+    }
+
+    // If a Windows link is set, add that to the generated HTML
+    if (otherGame.windows !== null && otherGame.windows !== undefined) {
+        link += `<a href="${otherGame.windows}" target="_blank"><img class="gameLink" src="../../images/windows.png" width="20px" /></a>`;
+    }
+
+    // Close the div
+    link += '</div>';
+
+    // Return the HTML
+    return link;
 }
 
 // Call the start method once the script has loaded
