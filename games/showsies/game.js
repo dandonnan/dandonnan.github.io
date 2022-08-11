@@ -541,7 +541,7 @@ const puzzles = [
         Name: 'VGhlIEJpZyBCYW5nIFRoZW9yeQ==',
         Origin: 'VVM=',
         Year: 2007,
-        Stars: 'SmltIFBhcnNvbixKb2hubnkgR2FsZWNraSxLYWxleSBDdW9jbw==',
+        Stars: 'SmltIFBhcnNvbnMsSm9obm55IEdhbGVja2ksS2FsZXkgQ3VvY28=',
         Genre: 'U2l0Y29t'
     },
     {
