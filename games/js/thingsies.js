@@ -936,7 +936,7 @@ const otherGames = [
     },
     {
         logo: '../../images/logo_biggerfish.png',
-        windows: 'https://dandonnan.itch.io/bigger-fish',
+        windows: 'https://dandonnan.itch.io/theres-always-a-bigger-fish',
         android: 'https://play.google.com/store/apps/details?id=com.dandon.biggerfish',
     }
 ]
