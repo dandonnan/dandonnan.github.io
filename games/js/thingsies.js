@@ -287,7 +287,7 @@ function Start() {
 // Enter a guess
 function Guess() {
     // Only allow guessing if it is the correct length and is not the same as the previous guess
-    if (currentGuess !== '' && currentGuess !== userData.lastGuess && currentGuess.length === currentTitleLength) {
+    if (currentGuess !== '' && currentGuess !== userData.lastGuess && currentGuess.length === currentTitleLength && currentGuess.indexOf(' ') === -1) {
 
         // Get today's puzzle
         let puzzle = GetPuzzle();
