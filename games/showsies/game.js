@@ -300,7 +300,7 @@ const puzzles = [
         Id: 23082022,
         Name: 'U3RyYW5nZXIgVGhpbmdz',
         Origin: 'VVM=',
-        Year: 1970,
+        Year: 2016,
         Stars: 'TWlsbGllIEJvYmJ5IEJyb3duLFdpbm9uYSBSeWRlcixEYXZpZCBIYXJib3Vy',
         Genre: 'SG9ycm9y'
     },

@@ -1606,7 +1606,7 @@ const puzzles = [
         Id: 19122022,
         Name: 'VG9wIEd1bg==',
         Director: 'VG9ueSBTY290dA==',
-        Year: 1970,
+        Year: 1986,
         Stars: 'VG9tIENydWlzZSxUaW0gUm9iYmlucyxLZWxseSBNY0dpbGxpcw==',
         Genre: 'QWN0aW9u'
     },
@@ -2350,7 +2350,7 @@ const puzzles = [
         Id: 5122023,
         Name: 'SGVyYmllIFJpZGVzIEFnYWlu',
         Director: 'Um9iZXJ0IFN0ZXZlbnNvbg==',
-        Year: 1970,
+        Year: 1974,
         Stars: 'SGVsZW4gSGF5ZXMsS2VuIEJlcnJ5LFN0ZWZhbmllIFBvd2Vycw==',
         Genre: 'Q29tZWR5'
     },

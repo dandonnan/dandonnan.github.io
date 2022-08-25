@@ -1622,7 +1622,7 @@ const puzzles = [
         Id: 10122022,
         Name: 'SHVtYW4=',
         Artist: 'UmFnJ24nQm9uZSBNYW4=',
-        Year: 1970,
+        Year: 2016,
         Album: 'SHVtYW4=',
         Lyrics: 'RG9uJ3QgcHV0IHlvdXIgYmxhbWUgb24gbWU='
     },
