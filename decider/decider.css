@@ -1,0 +1,125 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #babdbf;
+    color: white;
+}
+
+.welcomeScreen {
+    width: 50%;
+    left: 25%;
+    position: relative;
+}
+
+.choiceScreen {
+    width: 50%;
+    left: 25%;
+    position: relative;
+}
+
+.decisionScreen {
+    width: 50%;
+    left: 25%;
+    position: relative;
+}
+
+.header {
+    font-size: xxx-large;
+    text-align: center;
+}
+
+.subheader {
+    font-size: large;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 9rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    background-color: #b3b3b3;
+    transition: all 0.4s;
+}
+
+.buttonSmall {
+    width: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.button:hover {
+    background-color: #dadada;
+    transition: all 0.4s;
+}
+
+.buttonBar {
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    display: flex;
+}
+
+.textInput {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: xx-large;
+}
+
+.flex {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.marginTop {
+    margin-top: 1rem;
+}
+
+.choices {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.decision {
+    font-size: xx-large;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    width: 99%;
+    bottom: 1rem;
+    position: absolute;
+}
+
+@media only screen and (max-width: 500px) {
+    .welcomeScreen {
+        width: 80%;
+        left: 10%;
+    }
+
+    .choiceScreen {
+        width: 100%;
+        left: 0%;
+    }
+
+    .decisionScreen {
+        width: 100%;
+        left: 0%;
+    }
+}

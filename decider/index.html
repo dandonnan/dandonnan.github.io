@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Decider</title>
+
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="decider.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+        <script src="decider.min.js"></script>
+    </head>
+    <body>
+        <div id="welcomeScreen" class="welcomeScreen">
+            <div class="header">
+                Decider
+            </div>
+            <div class="subheader">
+                Stuck making a decision?<br>
+                Enter your options and let Decider decide.
+            </div>
+            <div class="buttonBar">
+                <div id="getStarted" class="button" onclick="App.getStarted()">
+                    Get Started
+                </div>
+                <div id="viewHistory" class="button hidden">
+                    View History
+                </div>
+            </div>
+        </div>
+
+        <div id="choiceScreen" class="choiceScreen hidden">
+            <input id="choiceInput" type="text" class="textInput" placeholder="Enter a new choice" onkeydown="App.onTextInput(event)">
+
+            <div class="buttonBar marginTop">
+                <div class="button" onclick="App.decide()">
+                    Decide
+                </div>
+            </div>
+
+            <div id="choices" class="choices marginTop"></div>
+        </div>
+
+        <div id="decisionScreen" class="decisionScreen hidden">
+            <div id="decision" class="decision"></div>
+
+            <div class="buttonBar marginTop">
+                <div class="button" onclick="App.redecide()">
+                    Redecide
+                </div>
+
+                <div class="button" onclick="App.getStarted()">
+                    Start Again
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Copyright &copy; 2022 Dan Donnan.
+        </div>
+    </body>
+
+    
+</html>
