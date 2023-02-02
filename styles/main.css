@@ -25,6 +25,31 @@ a:hover{
     content: 'Dan Donnan';
 }
 
+.menuBar {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.menuItem {
+    display: inline;
+    margin: 3rem;
+    cursor: pointer;
+}
+
+.menuItem > a {
+    text-decoration: none;
+}
+
+.menuItem.selected {
+    text-decoration: underline dashed 15%;
+}
+
+.menuItem:hover {
+    color: lightgray;
+}
+
 .burgerMenuIcon {
     position: absolute;
     top: 1.5rem;
@@ -59,15 +84,11 @@ a:hover{
 
 .mainContent {
     margin-top: 1rem;
-    min-height: 90%;
+    min-height: 80%;
 }
 
 .centerText {
     text-align: center;
-}
-
-.flexNotMobile{
-    display: flex;
 }
 
 .quarterWidth {
@@ -82,16 +103,33 @@ a:hover{
     font-size: 3rem;
 }
 
-.featuredContent {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
 .featuredButton {
     width: 300px;
     height: 200px;
+}
+
+.thumbnail {
+    width: 30%;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.thumbnail:hover {
+    opacity: 0.7;
+}
+
+.thumbnailBar {
+    text-align: center;
+}
+
+.selectedItem {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid white;
+    padding-bottom: 1rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .projectSearch {
@@ -121,15 +159,22 @@ a:hover{
 
 .projectTitle {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .projectPlatforms{
     font-style: italic;
     font-size: 1.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .projectDetails{
     font-size: 1.2rem;
+}
+
+.projectVideo {
+    width: 50%;
+    height: 30%;
 }
 
 .missingContent {
@@ -188,7 +233,7 @@ a:hover{
 }
 
 .footer::after{
-    content: 'Copyright © 2022 Dan Donnan.'
+    content: '© 2023 Dan Donnan'
 }
 
 ::-webkit-scrollbar{
@@ -216,6 +261,10 @@ a:hover{
         margin-right: 2rem;
     }
 
+    .menuItem {
+        margin: 0.5rem;
+    }
+
     .waffle {
         width: 80%;
     }
@@ -225,12 +274,15 @@ a:hover{
         width: 80%;
     }
 
-    .flexNotMobile{
-        display: grid;
+    .thumbnail {
+        width: 100%;
     }
 
-    .featuredContent {
-        display: block;
+    .selectedItem {
+        width: 100%;
+    }
+
+    .projectVideo {
         width: 100%;
     }
 }

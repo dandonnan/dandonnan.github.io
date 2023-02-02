@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
         <title>Heart of the Cards</title>
     </head>
@@ -20,17 +20,13 @@
         <div class="titleBar"></div>
 
         <div>
-            <div class="burgerMenuIcon" onclick="ToggleBurgerMenu()">
-                <span class="material-symbols-outlined burgerMenuIconSize">
-                    menu
-                </span>
-            </div>
-            <div id="burgerMenu" class="burgerMenu hidden">
-                <div class="burgerMenuItem"><a href="https://dandonnan.github.io">Home</a></div>
-                <div class="burgerMenuItem"><a href="https://dandonnan.github.io/about.html">About</a></div>
-                <div class="burgerMenuItem"><a href="https://dandonnan.blogspot.com" target="_blank">Blog</a></div>
-                <div class="burgerMenuItem"></div>
-            </div>
+            <a href="https://dandonnan.github.io" target="_blank">
+                <div class="burgerMenuIcon">
+                    <span class="material-symbols-outlined burgerMenuIconSize">
+                        home
+                    </span>
+                </div>
+            </a>
         </div>
 
         <div class="mainContent">
@@ -150,19 +146,6 @@
         <div class="footer"></div>
 
         <script>
-            let showingBurgerMenu = false;
-
-            function ToggleBurgerMenu() {
-                if (showingBurgerMenu) {
-                    showingBurgerMenu = false;
-                    document.getElementById('burgerMenu').classList.add('hidden');
-                }
-                else {
-                    showingBurgerMenu = true;
-                    document.getElementById('burgerMenu').classList.remove('hidden');
-                }
-            }
-
             function SwapRulesets(){
                 let standard = document.getElementById('rules-standard');
                 let playing = document.getElementById('rules-playing');

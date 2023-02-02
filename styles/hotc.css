@@ -25,6 +25,10 @@ a:hover{
     content: 'Heart of the Cards';
 }
 
+a > .burgerMenuIcon {
+    color: white;
+}
+
 .burgerMenuIcon {
     position: absolute;
     top: 1.5rem;
@@ -141,10 +145,6 @@ a:hover{
     text-align: center;
 }
 
-.flexNotMobile{
-    display: flex;
-}
-
 .quarterWidth {
     width: 25%;
 }
@@ -194,10 +194,6 @@ a:hover{
         margin-top: 2rem;
         margin-left: 2rem;
         margin-right: 2rem;
-    }
-
-    .flexNotMobile{
-        display: grid;
     }
 
     .infoSectionContainer{

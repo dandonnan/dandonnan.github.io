@@ -1,19 +1,5 @@
 let currentPopup = '';
 
-let showingBurgerMenu = false;
-
-function ToggleBurgerMenu() {
-    if (showingBurgerMenu) {
-        showingBurgerMenu = false;
-        document.getElementById('burgerMenu').classList.add('hidden');
-    }
-    else {
-        showingBurgerMenu = true;
-        document.getElementById('burgerMenu').classList.remove('hidden');
-    }
-}
-
-
 function ShowPopup(popupId) {
     document.getElementById(popupId).classList.remove('hidden');
 

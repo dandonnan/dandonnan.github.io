@@ -19,57 +19,130 @@
     </head>
     <body>
         <div class="titleBar"></div>
-
-        <div>
-            <div class="burgerMenuIcon" onclick="ToggleBurgerMenu()">
-                <span class="material-symbols-outlined burgerMenuIconSize">
-                    menu
-                </span>
-            </div>
-            <div id="burgerMenu" class="burgerMenu hidden">
-                <div class="burgerMenuItem"><a href="https://dandonnan.github.io">Home</a></div>
-                <div class="burgerMenuItem"><a href="https://dandonnan.github.io/about.html">About</a></div>
-                <div class="burgerMenuItem"><a href="https://dandonnan.blogspot.com" target="_blank">Blog</a></div>
-                <div class="burgerMenuItem"></div>
-            </div>
-        </div>
+		
+		<div class="menuBar">
+			<div id="menu-professional" class="menuItem selected" onclick="ChangeSection('professional')">Professional</div>
+			<!--<div id="menu-personal" class="menuItem" onclick="ChangeSection('personal')">Personal</div>
+			<div id="menu-source" class="menuItem" onclick="ChangeSection('source')">Source Code</div>-->
+			<div id="menu-about" class="menuItem" onclick="ChangeSection('about')">About</div>
+			<div class="menuItem"><a href="https://dandonnan.blogspot.com" target="_blank">Blog</a></div>
+		</div>
 
         <div class="mainContent">
 
-            <div class="featuredContent">
+            <div id="selectedItemContainer" class="selectedItem hidden">
             </div>
 
-            <div class="flexNotMobile">
-                <div class="quarterWidth bigText">Projects</div>
-                <div class="fullWidth">
-                    <input id="txtSearch" placeholder="Search for a project" class="fullWidth projectSearch" type="text" onkeyup="SearchProjects()" />
+            <div id="professional">
+                <div class="thumbnailBar">
+                    <image src="images/movie2-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('movie2')" />
+                    <image src="images/incredibles-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('incredibles')" />
+                    <image src="images/ninjago-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('ninjago')" />
+                    <image src="images/batman-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('batman')" />
+                    <image src="images/starwars-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('starwars')" />
+                    <image src="images/jurassic-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('jurassic')" />
                 </div>
-            </div>
 
-            <div id="noResults" class="centerText projectTitle hidden"><br>No matching projects were found.</div>
-
-            <div id="projects">
-
-                <div id="decider" class="project" data-tags="decision,decider,choice,pc,web,mobile,ios,android,typescript,html,css">
-                    <img src="images/decider.PNG" class="projectImage" />
+                <div id="movie2" class="project hidden">
                     <div class="projectText">
-                        <div class="projectTitle">Decider</div>
-                        <div class="projectPlatforms">WIP (2022 - Web)</div>
+                        <div class="projectTitle">The LEGO Movie 2 Videogame</div>
+                        <div class="projectPlatforms">2019 - PS4, Xbox One, Nintendo Switch, PC</div>
                         <div class="projectDetails">
-                            My friends and I would frequently find ourselves unable to choose between certain
-                            options, so I wrote <b>Decider</b> to make the choice for us.
-                            <br><br>
-                            This was written in Typescript, with a little bit of HTML and CSS.
-                            <br><br>
-                            It is a work in progress, with some additional features yet to be added, but the
-                            latest version is available <a href="https://dandonnan.github.io/decider" target="_blank">here</a>.
-                            <br><br>
+                            I created a Quest Editor, written using C# and WinForms, to aid the Design team
+                            with the setting up of quests. This was to provide them with a singular entry
+                            point for editing quests, instead of having to manually edit multiple files in
+                            several different locations.
                         </div>
                     </div>
                 </div>
 
-                <div id="thingsies" class="project" data-tags="filmsies,gamesies,songsies,showsies,tv,movies,guess,pc,web,mobile,ios,android,javascript,html,css">
-                    <img src="images/thingsies.png" class="projectImage" />
+                <div id="incredibles" class="project hidden">
+                    <div class="projectText">
+                        <div class="projectTitle">LEGO The Incredibles</div>
+                        <div class="projectPlatforms">2018 - PS4, Xbox One, Nintendo Switch, PC</div>
+                        <div class="projectDetails">
+                            As a Senior Game Scripter, I was responsible for all scripted content in the
+                            game's Hub world and led a small team to implement, polish and fix things
+                            ranging from pedestrians and traffic to missions and ambient events.
+                            <br><br>
+                            I played a key role in prototyping and iterating on the new Crime Wave system,
+                            developing generic and template scripts that could then be rolled out across
+                            the 100+ events in the Hub.
+                            <br><br>
+                            <iframe src="https://www.youtube.com/embed/rMEyo5nNrt0" class="projectVideo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ninjago" class="project hidden">
+                    <div class="projectText">
+                        <div class="projectTitle">The LEGO Ninjago Movie Video Game</div>
+                        <div class="projectPlatforms">2017 - PS4, Xbox One, Nintendo Switch, PC</div>
+                        <div class="projectDetails">
+                            I joined the project part-way through as a Game Scripter and worked across
+                            many levels in the game, either implementing content or refining what had
+                            already been setup.
+                            <br><br>
+                            There were many members of the team that had transitioned over from handheld
+                            development - in both Script, and the wider development team - and I would
+                            often be assisting them with any queries or problems that they had.
+                            <br><br>
+                            <iframe src="https://www.youtube.com/embed/x7dcqDKrwkw" class="projectVideo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="batman" class="project hidden">
+                    <div class="projectText">
+                        <div class="projectTitle">LEGO Dimensions - The LEGO Batman Movie Story Pack </div>
+                        <div class="projectPlatforms">2017 - PS3, PS4, Xbox 360, Xbox One, Wii U</div>
+                        <div class="projectDetails">
+                            As a Game Scripter, I was responsible for almost all scripted content in
+                            this DLC pack for LEGO Dimensions. In addition to the time I spent implementing
+                            content and fixing bugs across all levels and the Hub, as well as I trained
+                            a new member of the Script team.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="starwars" class="project hidden">
+                    <div class="projectText">
+                        <div class="projectTitle">LEGO Star Wars: The Force Awakens</div>
+                        <div class="projectPlatforms">2016 - PS3, PS4, Xbox 360, Xbox One, Wii U, PC</div>
+                        <div class="projectDetails">
+                            I worked across many of the game's levels as a Junior Game Scripter,
+                            adding in characters to fight as well as setting up boss battles.
+                            <br><br>
+                            <iframe src="https://www.youtube.com/embed/UkHbZSZYSRc" class="projectVideo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="jurassic" class="project hidden">
+                    <div class="projectText">
+                        <div class="projectTitle">LEGO Jurassic World</div>
+                        <div class="projectPlatforms">2015 - PS3, PS4, Xbox 360, Xbox One, Wii U, PC</div>
+                        <div class="projectDetails">
+                            In my first project as Junior Game Scripter, I placed characters and wrote
+                            their scripted behaviour across levels based around Jurassic Park 3 and
+                            Jurassic World.
+                            <br><br>
+                            <iframe src="https://www.youtube.com/embed/5_ZuAQ9w4ns" class="projectVideo" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="personal" class="hidden">
+                <div class="thumbnailBar">
+                    <image src="images/movie2-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('thingsies')" />
+                    <image src="images/incredibles-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('hotc')" />
+                    <image src="images/ninjago-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('fish')" />
+                    <image src="images/batman-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('bird')" />
+                    <image src="images/jurassic-promo.jpg" class="thumbnail" onclick="CopyContentIntoMain('tabletop')" />
+                </div>
+
+                <div id="thingsies" class="project hidden" data-tags="filmsies,gamesies,songsies,showsies,tv,movies,guess,pc,web,mobile,ios,android,javascript,html,css">
                     <div class="projectText">
                         <div class="projectTitle">Filmsies / Gamesies / Showsies / Songsies</div>
                         <div class="projectPlatforms">2022 - Web</div>
@@ -87,12 +160,12 @@
                             <b><a href="https://dandonnan.github.io/games/showsies" target="_blank">Showsies</a></b><br>
                             <b><a href="https://dandonnan.github.io/games/songsies" target="_blank">Songsies</a></b>
                             <br><br>
+                            <img src="images/thingsies.png" class="projectImage" />
                         </div>
                     </div>
                 </div>
 
-                <div id="hotc" class="project" data-tags="hotc,pc,steam,tabletop,simulator,heart,cards">
-                    <img src="images/hotc.jpg" class="projectImage" />
+                <div id="hotc" class="project hidden" data-tags="hotc,pc,steam,tabletop,simulator,heart,cards">
                     <div class="projectText">
                         <div class="projectTitle">Heart of the Cards</div>
                         <div class="projectPlatforms">2022 - PC</div>
@@ -105,12 +178,12 @@
                             It can be played online with friends through <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2817917925" target="_blank">Tabletop Simulator</a>, and more information about the rules
                             and how to play IRL can be found <a href="projects/hotc.html" target="_blank">here</a>.
                             <br><br>
+                            <img src="images/hotc.jpg" class="projectImage" />
                         </div>
                     </div>
                 </div>
 
-                <div id="fish" class="project" data-tags="fish,eat,bigger,there,always,pc,itch,itch.io,windows,mobile,android,c#,monogame">
-                    <img src="images/biggerfish.png" class="projectImage" />
+                <div id="fish" class="project hidden" data-tags="fish,eat,bigger,there,always,pc,itch,itch.io,windows,mobile,android,c#,monogame">
                     <div class="projectText">
                         <div class="projectTitle">There's Always a Bigger Fish</div>
                         <div class="projectPlatforms">2022 - PC, Android</div>
@@ -123,12 +196,12 @@
                             There's Always a Bigger Fish is available for Windows by downloading through <a href="https://dandonnan.itch.io/theres-always-a-bigger-fish" target="_blank">itch.io</a>
                             or on Android through the <a href="https://play.google.com/store/apps/details?id=com.dandon.biggerfish" target="_blank">Play Store</a>.
                             <br><br>
+                            <img src="images/biggerfish.png" class="projectImage" />
                         </div>
                     </div>
                 </div>
 
-                <div id="bird" class="project" data-tags="birds,poop,steal,food,pc,itch,itch.io,crappy,windows,mobile,android,c#,monogame">
-                    <img src="images/crappybird.png" class="projectImage" />
+                <div id="bird" class="project hidden" data-tags="birds,poop,steal,food,pc,itch,itch.io,crappy,windows,mobile,android,c#,monogame">
                     <div class="projectText">
                         <div class="projectTitle">Crappy Bird</div>
                         <div class="projectPlatforms">2022 - PC, Android</div>
@@ -141,12 +214,12 @@
                             Crappy Bird is available for Windows by downloading through <a href="https://dandonnan.itch.io/crappy-bird" target="_blank">itch.io</a>
                             or on Android through the <a href="https://play.google.com/store/apps/details?id=com.dandon.crappybird" target="_blank">Play Store</a>.
                             <br><br>
+                            <img src="images/crappybird.png" class="projectImage" />
                         </div>
                     </div>
                 </div>
 
-                <div id="tabletop" class="project" data-tags="tabletop,journal,adventure,chrome,firefox,extension,browser,source code,javascript,css,html">
-                    <img src="images/taj.png" class="projectImage" />
+                <div id="tabletop" class="project hidden" data-tags="tabletop,journal,adventure,chrome,firefox,extension,browser,source code,javascript,css,html">
                     <div class="projectText">
                         <div class="projectTitle">Tabletop Adventure Journal</div>
                         <div class="projectPlatforms">2021 - Chrome, Firefox</div>
@@ -162,15 +235,45 @@
                             <br><br>
                             Source code is also available through <a href="https://github.com/dandonnan/TabletopAdventureJournal" target="_blank">GitHub</a>.
                             <br><br>
+                            <img src="images/taj.png" class="projectImage" />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer"></div>        
 
-        <script type="text/javascript" src="js/popups.js"></script>
-        <script type="text/javascript" src="js/projects.js"></script>
+            <div id="source" class="hidden">
+                <div class="thumbnailBar">
+                    <a href="https://github.com/dandonnan/dandonnan.github.io/tree/main/games" target="_blank"><image src="images/movie2-promo.jpg" class="thumbnail" /></a>
+                    <a href="https://github.com/dandonnan/bird-game" target="_blank"><image src="images/incredibles-promo.jpg" class="thumbnail" /></a>
+                    <a href="https://github.com/dandonnan/TabletopAdventureJournal" target="_blank"><image src="images/ninjago-promo.jpg" class="thumbnail" /></a>
+                    <a href="https://github.com/dandonnan/Advent22" target="_blank"><image src="images/batman-promo.jpg" class="thumbnail" /></a>
+                </div>
+            </div>
+            
+            <div id="about" class="selectedItem hidden">
+                After achieving a <b>First</b> class degree in <b>Computer & Video Games</b> in 2013,
+                I spent 5 years working on over a dozen LEGO titles at <b>TT Games</b>. Between
+                2013 and 2014, I tested handheld and mobile games before joining the
+                console team at the end of 2014 as a <b>Junior Game Scripter</b>. In 2018, after
+                having been promoted twice to <b>Senior Game Scripter</b>, I left the games industry.
+                <br><br>
+                
+                The next 3 and a half years were spent as a <b>Software Developer</b> at
+                <b>Citrus Lime</b>. This included refactoring the codebase to properly modernise
+                and scale their ePOS system, as well as adding in new features from adding
+                tables to a database right through to displaying that data on the front-end.
+                <br><br>
+                
+                I took a year out to work on my own projects in MonoGame and Unity with C#,
+                with some projects using JavaScript and Typescript. I also learned how to
+                use Unreal 5, experimenting with Blueprints and furthering my knowledge of C++.
+            </div>
+
+        </div>
+
+        <div class="footer"></div>             
+
+        <script type="text/javascript" src="js/main.js"></script>
 
         <script async src="https://static.getclicky.com/101370774.js"></script>
         <noscript><p><img alt="Clicky" width="1" height="1" src="https://in.getclicky.com/101370774ns.gif" /></p></noscript>
