@@ -18,11 +18,22 @@ a:hover{
     text-align: center;
     font-size: 3rem;
     font-family: 'Titillium Web';
-    border-bottom: 2px solid white;
 }
 
 .titleBar::after{
     content: 'Dan Donnan';
+}
+
+.subtitleBar {
+    width: 100%;
+    text-align: center;
+    font-family: 'Titillium Web';
+    border-bottom: 2px solid white;
+    padding-bottom: 1rem;
+}
+
+.subtitleBar::after {
+    content: 'Programmer / Scripter';
 }
 
 .menuBar {
