@@ -7,12 +7,15 @@ const menuIdPrefix = 'menu-';
 
 const selectedItemContainerId = 'selectedItemContainer';
 
+const clickHintContainerId = 'clickHint';
+
 let currentSection = 'professional';
 
 function ChangeSection(toSection) {
 
     if (currentSection !== toSection) {
         DeselectHeader(currentSection);
+        ResetClickHintPrompt(toSection);
         SelectHeader(toSection);
     }
 
@@ -23,8 +26,6 @@ function DeselectHeader(menuItem) {
     RemoveClassFromElement(GetItemWithPrefix(menuIdPrefix, menuItem), menuItemSelectedClass);
 
     HideElement(menuItem);
-
-    HideElement(selectedItemContainerId);
 }
 
 function SelectHeader(menuItem) {
@@ -49,6 +50,15 @@ function ShowElement(elementId) {
 
 function HideElement(elementId) {
     AddClassToElement(elementId, hiddenClass);
+}
+
+function ResetClickHintPrompt(menuItem) {
+    if (menuItem === 'professional' || menuItem === 'personal') {
+        CopyContentIntoMain(clickHintContainerId);
+    }
+    else {
+        HideElement(selectedItemContainerId);
+    }
 }
 
 function AddClassToElement(elementId, className) {
