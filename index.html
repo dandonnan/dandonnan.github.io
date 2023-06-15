@@ -140,6 +140,7 @@
 
             <div id="personal" class="hidden">
                 <div class="thumbnailBar">
+                    <image src="images/bomb-promo.png" class="thumbnail" onclick="CopyContentIntoMain('bomb')" />
                     <image src="images/oswin-promo.png" class="thumbnail" onclick="CopyContentIntoMain('oswin')" />
                     <image src="images/thingsies-promo.png" class="thumbnail" onclick="CopyContentIntoMain('thingsies')" />
                     <image src="images/hotc-promo.png" class="thumbnail" onclick="CopyContentIntoMain('hotc')" />
@@ -147,6 +148,26 @@
                     <image src="images/crappy-promo.png" class="thumbnail" onclick="CopyContentIntoMain('bird')" />
                     <image src="images/tabletop-promo.png" class="thumbnail" onclick="CopyContentIntoMain('tabletop')" />
                     <image src="images/fletch-promo.png" class="thumbnail" onclick="CopyContentIntoMain('fletch')" />
+                </div>
+
+                <div id="bomb" class="project hidden">
+                    <div class="projectText">
+                        <div class="projectTitle">Bomb Flip</div>
+                        <div class="projectPlatforms">2023 - Switch (Homebrew)</div>
+                        <div class="projectDetails">
+                            <b>Bomb Flip</b> is a clone of the Voltorb Flip minigame featured in Pokémon HeartGold
+                            and SoulSilver, but with the addition of different size grids. The objective is to flip
+                            all the tiles with values of 2 and 3 while avoiding the bombs.
+                            <br><br>
+                            This was written in C++ using the libnx library, and SDL2.
+                            <br><br>
+                            Bomb Flip is available to download on <a href="https://github.com/dandonnan/bomb/releases" target="_blank">GitHub</a> and
+                            is playable either on a Nintendo Switch emulator for PC or on Switch hardware that is capable of running
+                            custom firmware.
+                            <br><br>
+                            <img src="images/bomb.jpg" class="projectImage" />
+                        </div>
+                    </div>
                 </div>
 
                 <div id="oswin" class="project hidden">
@@ -303,6 +324,7 @@
 
             <div id="source" class="hidden">
                 <div class="thumbnailBar">
+                    <a href="https://github.com/dandonnan/bomb" target="_blank"><image src="images/bomb-promo-source.png" class="thumbnail" /></a>
                     <a href="https://github.com/dandonnan/balls" target="_blank"><image src="images/balls-promo-source.png" class="thumbnail" /></a>
                     <a href="https://github.com/dandonnan/dandonnan.github.io/tree/main/games" target="_blank"><image src="images/thingsies-promo-source.png" class="thumbnail" /></a>
                     <a href="https://github.com/dandonnan/fish" target="_blank"><image src="images/fish-promo-source.png" class="thumbnail" /></a>
