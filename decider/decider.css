@@ -49,6 +49,10 @@ body {
     transition: all 0.4s;
 }
 
+.buttonAdd {
+    width: 3rem;
+}
+
 .buttonSmall {
     width: 1rem;
     padding-top: 0rem;
@@ -71,10 +75,9 @@ body {
 
 .textInput {
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
     font-size: xx-large;
+    margin-right: 1rem;
 }
 
 .flex {
@@ -93,6 +96,13 @@ body {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+}
+
+.newChoiceBar {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
 
 .decision {

@@ -34,7 +34,11 @@
         </div>
 
         <div id="choiceScreen" class="choiceScreen hidden">
-            <input id="choiceInput" type="text" class="textInput" placeholder="Enter a new choice" onkeydown="App.onTextInput(event)">
+            <div class="newChoiceBar">
+                <input id="choiceInput" type="text" class="textInput" placeholder="Enter a new choice" onkeydown="App.onTextInput(event)">
+
+                <div id="choiceAdd" class="button buttonAdd" onclick="App.addChoiceFromInput()">+</div>
+            </div>
 
             <div class="buttonBar marginTop">
                 <div class="button" onclick="App.decide()">
@@ -48,7 +52,7 @@
         <div id="decisionScreen" class="decisionScreen hidden">
             <div id="decision" class="decision"></div>
 
-            <div class="buttonBar marginTop">
+            <div id="decisionOptions" class="buttonBar marginTop hidden">
                 <div class="button" onclick="App.redecide()">
                     Redecide
                 </div>
@@ -59,8 +63,20 @@
             </div>
         </div>
 
+        <div id="prefabsScreen" class="choiceScreen hidden">
+            <div id="coinFlip">
+                <div class="button" onclick="App.flipCoin()">Flip Coin</div>
+            </div>
+
+            <div id="rng">
+                <div class="button" onclick="App.rng(6)">D6</div>
+                <div class="button" onclick="App.rng(20)">D20</div>
+                <div class="button" onclick="App.rng(100)">D100</div>
+            </div>
+        </div>
+
         <div class="footer">
-            Copyright &copy; 2022 Dan Donnan.
+            Copyright &copy; 2023 Dan Donnan.
         </div>
     </body>
 
