@@ -648,7 +648,7 @@ function GetPuzzle() {
 // Get a recycled puzzle
 function GetRecycledPuzzle() {
 
-    let recycleStartDate = 1725148800000;
+    let recycleStartDate = 1704067200000;
 
     // Get midnight from today's date in UTC
     let today = new Date().setUTCHours(0, 0, 0, 0);
